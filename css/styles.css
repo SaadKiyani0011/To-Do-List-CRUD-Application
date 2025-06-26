@@ -136,3 +136,77 @@
         background-color: var(--primary-color);
         color: white;
     }
+    /* task List Section  */
+    #task-list-section h2 {
+        margin-bottom: 1rem;
+    }
+    #task-list {
+        list-style: none;
+    }
+    .task-item {
+        background: white;
+        border: 1px solid #e9ecef;
+        border-radius: var(--border-radius);
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: var(--transition);
+    }
+    .task-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    .task-content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .task-title {
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+    .task-date {
+        font-size: 0.85rem;
+        color: #6c757d;
+        display: flex;
+        gap: 1rem;
+    }
+    .task-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+    .task-actions button {
+        padding: 0.5rem;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+    }
+    .edit-btn {
+        background-color: var(--warning-color);
+    }
+    .edit-btn:hover {
+        background-color: #e07d0e;
+    }
+    .delete-btn {
+        background-color: var(--danger-color);
+    }
+    .delete-btn:hover {
+        background-color: #e03131;
+    }
+    .complete-btn {
+        background-color: var(--success-color);
+    }
+    .complete-btn:hover {
+        background-color: #3aa13a;
+    }
+    .completed {
+        opacity: 0.7;
+        background-color: #f8f9fa;
+    }
+    .completed .task-title {
+        text-decoration: line-through;
+        color: #6c757d;
+    }
