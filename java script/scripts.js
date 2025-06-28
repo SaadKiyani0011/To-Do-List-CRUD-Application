@@ -140,3 +140,45 @@ function renderTasks(filter = "all") {
         }
     });
 }
+// Complete Task
+function completeTask(id) {
+    const task = tasks.find(t => t.id === id);
+    if (task && !task.completed) {
+        task.completed = true;
+        task.completedDate = getTodayDate();
+        alert(`🎉 Task "${task.title}" marked as completed!`);
+        saveTasks();
+        renderTasks();
+    }
+}
+
+// Delete Task
+function deleteTask(id) {
+    tasks = tasks.filter(t => t.id !== id);
+    saveTasks();
+    renderTasks();
+}
+
+// Edit Task
+function editTask(id) {
+    const task = tasks.find(t => t.id === id);
+    const newTitle = prompt("Edit your task title:", task.title);
+    if (newTitle !== null && newTitle.trim() !== "") {
+        task.title = newTitle.trim();
+        saveTasks();
+        renderTasks();
+    }
+}
+
+// Filter Buttons
+filters.forEach(btn => {
+    btn.addEventListener("click", () => {
+        filters.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const filter = btn.getAttribute("data-filter");
+        renderTasks(filter);
+    });
+});
+
+// On Page Load
+loadTasks();
