@@ -57,3 +57,86 @@ addTaskBtn.addEventListener("click", () => {
     taskInput.value = "";
     endDateInput.value = "";
 });
+// Render Tasks
+function renderTasks(filter = "all") {
+    taskList.innerHTML = "";
+
+    const today = getTodayDate();
+    const currentWeek = getWeekNumber(today);
+    const currentMonth = new Date().getMonth();
+    const currentYear = new Date().getFullYear();
+
+    tasks.forEach(task => {
+        let taskWeek = getWeekNumber(task.startDate);
+        let taskMonth = new Date(task.startDate).getMonth();
+        let taskYear = new Date(task.startDate).getFullYear();
+
+        // Filtering
+        if (
+            (filter === "week1" && taskWeek !== 1) ||
+            (filter === "week2" && taskWeek !== 2) ||
+            (filter === "week3" && taskWeek !== 3) ||
+            (filter === "week4" && taskWeek !== 4) ||
+            (filter === "month" && taskMonth !== currentMonth) ||
+            (filter === "year" && taskYear !== currentYear)
+        ) return;
+
+        const li = document.createElement("li");
+        li.className = "task-item";
+        if (task.completed) li.classList.add("completed");
+
+        // Task Content
+        const content = document.createElement("div");
+        content.className = "task-content";
+
+        const title = document.createElement("div");
+        title.className = "task-title";
+        title.textContent = task.title;
+
+        const dates = document.createElement("div");
+        dates.className = "task-date";
+        dates.innerHTML = `
+            <span class="start">Start: ${task.startDate}</span>
+            <span class="end">End: ${task.endDate}</span>
+            ${task.completed ? `<span class="end">Completed: ${task.completedDate}</span>` : ""}
+        `;
+
+        content.appendChild(title);
+        content.appendChild(dates);
+
+        // Task Actions
+        const actions = document.createElement("div");
+        actions.className = "task-actions";
+
+        // Edit
+        const editBtn = document.createElement("button");
+        editBtn.className = "edit-btn";
+        editBtn.innerHTML = "✏️";
+        editBtn.addEventListener("click", () => editTask(task.id));
+
+        // Complete
+        const completeBtn = document.createElement("button");
+        completeBtn.className = "complete-btn";
+        completeBtn.innerHTML = "✅";
+        completeBtn.addEventListener("click", () => completeTask(task.id));
+
+        // Delete
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = "delete-btn";
+        deleteBtn.innerHTML = "🗑️";
+        deleteBtn.addEventListener("click", () => deleteTask(task.id));
+
+        actions.appendChild(editBtn);
+        actions.appendChild(completeBtn);
+        actions.appendChild(deleteBtn);
+
+        li.appendChild(content);
+        li.appendChild(actions);
+        taskList.appendChild(li);
+
+        // Alert for overdue task
+        if (!task.completed && task.endDate < today) {
+            alert(`⚠️ Task "${task.title}" is overdue and incomplete!`);
+        }
+    });
+}
