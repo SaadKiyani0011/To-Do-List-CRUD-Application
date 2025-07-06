@@ -9,7 +9,11 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+<<<<<<< HEAD
 import os
+=======
+
+>>>>>>> be34c43 (CRash Restart)
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,7 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = 'django-insecure-e-k5&gqeqvm#k$=y_j3$@2_&tdgwp9cc*v!68-3(@1&la@g#t('
+=======
+SECRET_KEY = 'django-insecure-v$(l+a0y&ah4gct9@%okgluh*xhrj*o9dcu(c$4p8$%awa5rq7'
+>>>>>>> be34c43 (CRash Restart)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,8 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'base',
     'mem',
+=======
+>>>>>>> be34c43 (CRash Restart)
 ]
 
 MIDDLEWARE = [
@@ -117,12 +128,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+<<<<<<< HEAD
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 MEDIAFILES_DIRS = [
     BASE_DIR / 'media',
 ]
+=======
+>>>>>>> be34c43 (CRash Restart)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
