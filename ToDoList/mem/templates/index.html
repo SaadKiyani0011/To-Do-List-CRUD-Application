@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Advanced To-Do List App</title>
+    <link rel="stylesheet" href="css\styles.css" />
+</head>
+<body>
+    <header>
+        <h1>📋 To-Do List Manager</h1>
+        <p>Organize your tasks weekly, monthly & yearly!</p>
+    </header>
+
+    <!-- Task Input Section -->
+<section id="task-input-section">
+    <input type="text" id="task-input" placeholder="Enter your task..." />
+
+    <div class="input-group">
+        <label for="end-date">Expected End Date</label>
+        <input type="date" id="end-date" />
+    </div>
+
+    <button id="add-task-btn">Add Task</button>
+</section>
+
+
+    <!-- Task Filter Section -->
+    <section id="task-filters">
+        <h2>📆 Filter Tasks</h2>
+        <button data-filter="week1">Week 1</button>
+        <button data-filter="week2">Week 2</button>
+        <button data-filter="week3">Week 3</button>
+        <button data-filter="week4">Week 4</button>
+        <button data-filter="month">Monthly</button>
+        <button data-filter="year">Yearly</button>
+        <button data-filter="all">Show All</button>
+    </section>
+
+    <!-- Task Display Section -->
+    <section id="task-list-section">
+        <h2>📝 Your Tasks</h2>
+        <ul id="task-list">
+            <!-- Dynamic tasks will appear here -->
+        </ul>
+    </section>
+
+    <!-- Edit Task Modal -->
+    <div id="edit-task-modal" style="display: none;">
+        <input type="text" id="edit-task-input" />
+        <input type="date" id="edit-start-date" />
+        <input type="date" id="edit-end-date" />
+        <button id="save-edit-btn">Save</button>
+        <button id="cancel-edit-btn">Cancel</button>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 | To-Do List by Saad Zia</p>
+    </footer>
+
+    <script src="java script\scripts.js"></script>
+</body>
+</html>
